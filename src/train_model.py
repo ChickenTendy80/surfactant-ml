@@ -20,11 +20,94 @@ from sklearn.metrics import (
     r2_score
 )
 
-#Load dataset
-df = pd.read_csv("data/processed_surfactants.csv")
+from descriptors import (
+    calc_descriptors,
+    fingerprints_to_df
+)
 
-#Target: pCMC
+from feature_engineering import (
+    generate_engineered_features
+)
+
+# ============================================================
+# LOAD RAW DATA
+# ============================================================
+
+df = pd.read_csv(
+    "data/raw_surfactant.csv"
+)
+
+# ============================================================
+# GENERATE RDKit DESCRIPTORS
+# ============================================================
+
+desc_df = df["smiles"].apply(
+    calc_descriptors
+)
+
+# ============================================================
+# GENERATE FINGERPRINTS
+# ============================================================
+
+fp_df = fingerprints_to_df(
+    df["smiles"]
+)
+
+# ============================================================
+# GENERATE ENGINEERED FEATURES
+# ============================================================
+
+engineered_df = generate_engineered_features(
+    df.copy()
+)
+
+engineered_cols = [
+    "aromatic_flag",
+    "tail_length",
+    "ionic_encoded",
+    "ethoxylate_count"
+]
+
+engineered_df = engineered_df[
+    engineered_cols
+]
+
+# ============================================================
+# COMBINE ALL FEATURES
+# ============================================================
+
+X_combined = pd.concat(
+    [
+        desc_df.reset_index(drop=True),
+        engineered_df.reset_index(drop=True),
+        fp_df.reset_index(drop=True)
+    ],
+    axis=1
+)
+
+# ============================================================
+# TARGET VARIABLE
+# ============================================================
+
 y = df["pCMC"]
+
+# ============================================================
+# OPTIONAL:
+# SAVE GENERATED FEATURE MATRIX
+# ============================================================
+
+processed_df = pd.concat(
+    [
+        X_combined,
+        y
+    ],
+    axis=1
+)
+
+processed_df.to_csv(
+    "data/processed_surfactants.csv",
+    index=False
+)
 
 #3 features will be comapred: descriptors only, fingerprints only, combined
 #Determine which feature is the best
@@ -47,7 +130,7 @@ descriptors_col = [
     "ethoxylate_count"
     ]
 
-X_desc = df[descriptors_col]
+X_desc = X_combined
 
 #==============================================
 # 2. Fingerprints Only
@@ -58,6 +141,7 @@ fp_cols = [
 ]
 
 X_fp = df[fp_cols]
+#print(f'Length of fingerprint: {len(X_fp)}')
 
 #==============================================
 # 3. Descriptor AND Fingerprints 
@@ -70,11 +154,18 @@ X_combined = pd.concat(
 #==============================================
 # 4. Test Train Split 
 #==============================================
+randomState = 20
 X_train, X_test, y_train, y_test = train_test_split(
     X_combined,
     y,
     test_size = 0.2,
-    random_state = 42
+    random_state = randomState
+)
+
+# Save feature column order
+joblib.dump(
+    X_combined.columns.tolist(),
+    "models/feature_columns.pkl"
 )
 
 #==============================================
@@ -97,7 +188,7 @@ y_pred_lr = lr_model.predict(X_test_scaled)
 #==============================================
 rf_model = RandomForestRegressor(
     n_estimators=200,
-    random_state=42
+    random_state=randomState
 )
 rf_model.fit(X_train, y_train)
 y_pred_rf = rf_model.predict(X_test)
@@ -110,7 +201,7 @@ xgb_model = XGBRegressor(
     n_estimators=300, #300 trees
     learning_rate=0.05, #How aggressively each new tree updates prediction
     max_depth=6, #Complexity of each tree
-    random_state=42
+    random_state=randomState
 )
 
 xgb_model.fit(X_train, y_train)

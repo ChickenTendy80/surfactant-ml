@@ -6,12 +6,12 @@ import joblib
 import pandas as pd
 import numpy as np
 
-from src.descriptors import (
+from descriptors import (
     calc_descriptors,
     calc_fp
 )
 
-from src.feature_engineering import (
+from feature_engineering import (
     generate_engineered_features
 )
 
@@ -25,6 +25,10 @@ model = joblib.load(
 
 scaler = joblib.load(
     "models/scaler.pkl"
+)
+
+feature_columns = joblib.load(
+    "models/feature_columns.pkl"
 )
 
 # ============================================================
@@ -121,3 +125,98 @@ def generate_combined_features(
 
     return combined_df
 
+# ============================================================
+# PREDICT pCMC
+# ============================================================
+
+def predict_pcmc(
+    smiles,
+    ionic_type="nonionic"
+):
+
+    # --------------------------------------------------------
+    # GENERATE FEATURES
+    # --------------------------------------------------------
+
+    X_new = generate_combined_features(
+        smiles=smiles,
+        ionic_type=ionic_type
+    )
+
+    # --------------------------------------------------------
+    # MATCH TRAINING COLUMN ORDER
+    # --------------------------------------------------------
+
+    X_new = X_new[feature_columns]
+    #print(X_new.columns.tolist()[:20])
+    #print(feature_columns[:20])
+    # --------------------------------------------------------
+    # SCALE FEATURES
+    # --------------------------------------------------------
+    print("X_new shape:")
+    print(X_new.shape)
+
+    print("\nFirst 20 features:")
+    print(X_new.iloc[0, :20])
+
+    print("\nNaN count:")
+    print(X_new.isna().sum().sum())
+    
+    X_scaled = scaler.transform(X_new)
+
+    # --------------------------------------------------------
+    # PREDICT
+    # --------------------------------------------------------
+
+    pred_pcmc = model.predict(X_scaled)[0]
+
+    return pred_pcmc
+
+
+# ============================================================
+# CONVERT pCMC TO CMC
+# ============================================================
+
+def pcmc_to_cmc_mM(pcmc):
+
+    cmc_molar = 10 ** (-pcmc)
+
+    cmc_mM = cmc_molar * 1000
+
+    return cmc_mM
+
+
+# ============================================================
+# SIMPLE TERMINAL TEST
+# ============================================================
+
+if __name__ == "__main__":
+
+    smiles = input("Enter SMILES: ")
+
+    ionic_type = input(
+        "Enter ionic type: "
+    )
+
+    try:
+
+        pred_pcmc = predict_pcmc(
+            smiles,
+            ionic_type
+        )
+
+        pred_cmc = pcmc_to_cmc_mM(
+            pred_pcmc
+        )
+
+        print("\n======================")
+        print(f"Predicted pCMC: {pred_pcmc:.3f}")
+        print(f"Predicted CMC: {pred_cmc:.4f} mM")
+        print("======================")
+
+    except Exception as e:
+
+        print("ERROR:", e)
+
+#Smiles CCCCCCCCCOC1[CH][C@H](O)[C@@H](O)C(O)O1
+#Actual: 2.677987561

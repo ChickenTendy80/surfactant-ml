@@ -58,7 +58,7 @@ def calc_descriptors(smiles):
 # MORGAN FINGERPRINTS
 # ============================================================
 
-def calc_fp(smiles, radius=2, n_bits=1024):
+def calc_fp(smiles, radius=2, n_bits=128):
     """
     Generate Morgan fingerprint array.
 
@@ -101,7 +101,7 @@ def calc_fp(smiles, radius=2, n_bits=1024):
 # GENERATE FULL FINGERPRINT DATAFRAME
 # ============================================================
 
-def fingerprints_to_df(smiles_series, radius=2, n_bits=1024):
+def fingerprints_to_df(smiles_series, radius=2, n_bits=128):
     """
     Convert multiple SMILES into fingerprint dataframe.
     """
