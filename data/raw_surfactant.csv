@@ -1,29 +1,83 @@
-surfactant_name,smiles,cmc_mM,pCMC,ionic_type,temperature,HLB
-Sodium dodecyl sulfate,CCCCCCCCCCCCOS(=O)(=O)[O-].[Na+],8.2,2.09,anionic,25,40
-Sodium decyl sulfate,CCCCCCCCCCOS(=O)(=O)[O-].[Na+],32,1.49,anionic,25,38
-Sodium octyl sulfate,CCCCCCCCOS(=O)(=O)[O-].[Na+],150,0.82,anionic,25,36
-Cetyltrimethylammonium bromide,CCCCCCCCCCCCCCCC[N+](C)(C)C.[Br-],0.9,3.05,cationic,25,10
-Dodecyltrimethylammonium bromide,CCCCCCCCCCCC[N+](C)(C)C.[Br-],15,1.82,cationic,25,12
-Tetradecyltrimethylammonium bromide,CCCCCCCCCCCCCC[N+](C)(C)C.[Br-],3.7,2.43,cationic,25,13
-Benzalkonium chloride (C12),CCCCCCCCCCCC1=CC=CC=C1[N+](C)(C)C.[Cl-],1.2,2.92,cationic,25,15
-Tween 20,CCCCCCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,0.06,4.22,nonionic,25,16
-Tween 80,CCCCCCCC=CCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,0.012,4.92,nonionic,25,15
-Span 20,CCCCCCCCCCCC(=O)OCC(CO)CO,0.25,3.6,nonionic,25,8
-Span 80,CCCCCCCC=CCCCCCCCCCCC(=O)OCC(CO)CO,0.01,5,nonionic,25,4
-Brij 35,CCCCCCCCCCCCOCCOCCOCCO,0.09,4.05,nonionic,25,16
-Triton X-100,CCCCC1=CC=C(C=C1)C(C)(C)C(=O)OCCOCCOCCO,0.24,3.62,nonionic,25,13
-Triton X-114,CCCCC1=CC=C(C=C1)C(C)(C)C(=O)OCCOCCOCCO,0.2,3.7,nonionic,25,12
-Sodium dodecylbenzene sulfonate,CCCCCCCCCCCC1=CC=CC=C1S(=O)(=O)[O-].[Na+],1.2,2.92,anionic,25,37
-Sodium laureth sulfate,CCCCCCCCCCCCOCCOCCOS(=O)(=O)[O-].[Na+],1,3,anionic,25,38
-Lauryl betaine,CCCCCCCCCCCC[N+](C)(C)CC(=O)[O-],15,1.82,zwitterionic,25,11
-Cocamidopropyl betaine,CCCCCCCCCCCCCC(=O)NCC[N+](C)(C)CC(=O)[O-],0.1,4,zwitternionic,25,12
-Sodium cholate,CC(O)C1CCC2C3CCC(O)C3(C)CCC2(C)C1O,12,1.92,anionic,25,18
-Deoxycholic acid,CC1CCC2C3CCC(O)C3(C)CCC2(C)C1,6.2,2.22,anionic,25,16
-Sodium stearate,CCCCCCCCCCCCCCCC(=O)[O-].[Na+],1,3,anionic,25,20
-Potassium oleate,CCCCCCCC=CCCCCCCCCC(=O)[O-].[K+],1.2,2.92,anioinc,25,20
-Hexadecyl trimethyl ammonium chloride,CCCCCCCCCCCCCCCC[N+](C)(C)C.[Cl-],0.92,3.04,cationic,25,12
-Decyl glucoside,CCCCCCCCCCOC1C(O)C(O)C(O)C(O)C1O,0.05,4.3,nonionic,25,14
-Lauryl glucoside,CCCCCCCCCCCCCCOC1C(O)C(O)C(O)C(O)C1O,0.02,4.7,nonionic,25,14
-Sodium laurate,CCCCCCCCCCCCCC(=O)[O-].[Na+],5,2.3,anionic,25,19
-Sodium myristate,CCCCCCCCCCCCCCCC(=O)[O-].[Na+],1.5,2.82,anionic,25,20
-Sodium palmitate,CCCCCCCCCCCCCCCCCC(=O)[O-].[Na+],0.9,3.05,anionic,25,20
+surfactant_name,smiles,pCMC,ionic_type,temperature,HLB,Source
+Sodium dodecyl sulfate,CCCCCCCCCCCCOS(=O)(=O)[O-].[Na+],2.09,anionic,25,40,https://zenodo.org/records/15861809?utm.com
+Sodium decyl sulfate,CCCCCCCCCCOS(=O)(=O)[O-].[Na+],1.49,anionic,25,38,https://zenodo.org/records/15861809?utm.com
+Sodium octyl sulfate,CCCCCCCCOS(=O)(=O)[O-].[Na+],0.82,anionic,25,36,https://zenodo.org/records/15861809?utm.com
+Cetyltrimethylammonium bromide,CCCCCCCCCCCCCCCC[N+](C)(C)C.[Br-],3.05,cationic,25,10,https://zenodo.org/records/15861809?utm.com
+Dodecyltrimethylammonium bromide,CCCCCCCCCCCC[N+](C)(C)C.[Br-],1.82,cationic,25,12,https://zenodo.org/records/15861809?utm.com
+Tetradecyltrimethylammonium bromide,CCCCCCCCCCCCCC[N+](C)(C)C.[Br-],2.43,cationic,25,13,https://zenodo.org/records/15861809?utm.com
+Benzalkonium chloride (C12),CCCCCCCCCCCC1=CC=CC=C1[N+](C)(C)C.[Cl-],2.92,cationic,25,15,https://zenodo.org/records/15861809?utm.com
+Tween 20,CCCCCCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,4.22,nonionic,25,16,https://zenodo.org/records/15861809?utm.com
+Tween 80,CCCCCCCC=CCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,4.92,nonionic,25,15,https://zenodo.org/records/15861809?utm.com
+Span 20,CCCCCCCCCCCC(=O)OCC(CO)CO,3.6,nonionic,25,8,https://zenodo.org/records/15861809?utm.com
+Span 80,CCCCCCCC=CCCCCCCCCCCC(=O)OCC(CO)CO,5,nonionic,25,4,https://zenodo.org/records/15861809?utm.com
+Brij 35,CCCCCCCCCCCCOCCOCCOCCO,4.05,nonionic,25,16,https://zenodo.org/records/15861809?utm.com
+Triton X-100,CCCCC1=CC=C(C=C1)C(C)(C)C(=O)OCCOCCOCCO,3.62,nonionic,25,13,https://zenodo.org/records/15861809?utm.com
+Triton X-114,CCCCCCCCC1=CC=C(C=C1)OCCO,3.7,nonionic,25,12,https://zenodo.org/records/15861809?utm.com
+Sodium dodecylbenzene sulfonate,CCCCCCCCCCCC1=CC=CC=C1S(=O)(=O)[O-].[Na+],2.92,anionic,25,37,https://zenodo.org/records/15861809?utm.com
+Sodium laureth sulfate,CCCCCCCCCCCCOCCOCCOS(=O)(=O)[O-].[Na+],3,anionic,25,38,https://zenodo.org/records/15861809?utm.com
+Lauryl betaine,CCCCCCCCCCCC[N+](C)(C)CC(=O)[O-],1.82,zwitterionic,25,11,https://zenodo.org/records/15861809?utm.com
+Cocamidopropyl betaine,CCCCCCCCCCCCCC(=O)NCC[N+](C)(C)CC(=O)[O-],4,zwitternionic,25,12,https://zenodo.org/records/15861809?utm.com
+Sodium cholate,CC(O)C1CCC2C3CCC(O)C3(C)CCC2(C)C1O,1.92,anionic,25,18,https://zenodo.org/records/15861809?utm.com
+Deoxycholic acid,CC1CCC2C3CCC(O)C3(C)CCC2(C)C1,2.22,anionic,25,16,https://zenodo.org/records/15861809?utm.com
+Sodium stearate,CCCCCCCCCCCCCCCC(=O)[O-].[Na+],3,anionic,25,20,https://zenodo.org/records/15861809?utm.com
+Potassium oleate,CCCCCCCC=CCCCCCCCCC(=O)[O-].[K+],2.92,anioinc,25,20,https://zenodo.org/records/15861809?utm.com
+Hexadecyl trimethyl ammonium chloride,CCCCCCCCCCCCCCCC[N+](C)(C)C.[Cl-],3.04,cationic,25,12,https://zenodo.org/records/15861809?utm.com
+Decyl glucoside,CCCCCCCCCCOC1C(O)C(O)C(O)C(O)C1O,4.3,nonionic,25,14,https://zenodo.org/records/15861809?utm.com
+Lauryl glucoside,CCCCCCCCCCCCCCOC1C(O)C(O)C(O)C(O)C1O,4.7,nonionic,25,14,https://zenodo.org/records/15861809?utm.com
+Sodium laurate,CCCCCCCCCCCCCC(=O)[O-].[Na+],2.3,anionic,25,19,https://zenodo.org/records/15861809?utm.com
+Sodium myristate,CCCCCCCCCCCCCCCC(=O)[O-].[Na+],2.82,anionic,25,20,https://zenodo.org/records/15861809?utm.com
+Sodium palmitate,CCCCCCCCCCCCCCCCCC(=O)[O-].[Na+],3.05,anionic,25,20,https://zenodo.org/records/15861809?utm.com
+dodecyl 2-[dodecyl(dimethyl)azaniumyl]ethyl phosphate,CCCCCCCCCCCCOP(=O)([O-])OCC[N+](C)(C)CCCCCCCCCCCC,5.048,zwitterionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+"1-dodecanaminium,N-[2-(acetyloxy)ethyl]-N,Ndimethyl-,bromide",CCCCCCCCCCCC[N+](C)(C)CCOC(C)=O.[Br-],1.924818145,cationic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Sodium hexyl sulfate,CCCCCCOS(=O)(=O)[O-].[Na+],0.38,anionic,25,35,https://zenodo.org/records/15861809?utm.com
+Sodium heptyl sulfate,CCCCCCCOS(=O)(=O)[O-].[Na+],0.68,anionic,25,35,https://zenodo.org/records/15861809?utm.com
+Sodium nonyl sulfate,CCCCCCCCCOS(=O)(=O)[O-].[Na+],1.19,anionic,25,37,https://zenodo.org/records/15861809?utm.com
+Sodium tetradecyl sulfate,CCCCCCCCCCCCCCOS(=O)(=O)[O-].[Na+],2.68,anionic,25,39,https://zenodo.org/records/15861809?utm.com
+Sodium hexadecyl sulfate,CCCCCCCCCCCCCCCCOS(=O)(=O)[O-].[Na+],3.46,anionic,25,40,https://zenodo.org/records/15861809?utm.com
+Lithium dodecyl sulfate,CCCCCCCCCCCCOS(=O)(=O)[O-].[Li+],2.02,anionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Ammonium dodecyl sulfate,CCCCCCCCCCCCOS(=O)(=O)[O-].[NH4+],2.1,anionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Sodium undecyl sulfate,CCCCCCCCCCCOS(=O)(=O)[O-].[Na+],1.82,anionic,25,38,https://zenodo.org/records/15861809?utm.com
+Sodium cetyl sulfate,CCCCCCCCCCCCCCCCCCOS(=O)(=O)[O-].[Na+],3.6,anionic,25,40,https://zenodo.org/records/15861809?utm.com
+Sodium tridecyl sulfate,CCCCCCCCCCCCCOS(=O)(=O)[O-].[Na+],2.35,anionic,25,39,https://zenodo.org/records/15861809?utm.com
+Decyltrimethylammonium bromide,CCCCCCCCCC[N+](C)C.[Br-],1.19,cationic,25,11,https://zenodo.org/records/15861809?utm.com
+Hexyltrimethylammonium bromide,CCCCCC[N+](C)C.[Br-],0.07,cationic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Octyltrimethylammonium bromide,CCCCCCCC[N+](C)C.[Br-],0.6,cationic,25,10,https://zenodo.org/records/15861809?utm.com
+Tetradecyltrimethylammonium chloride,CCCCCCCCCCCCCC[N+](C)C.[Cl-],2.52,cationic,25,13,https://zenodo.org/records/15861809?utm.com
+Octadecyltrimethylammonium bromide,CCCCCCCCCCCCCCCCCC[N+](C)C.[Br-],3.7,cationic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Cetylpyridinium chloride,CCCCCCCCCCCCCCCC[n+]1ccccc1.[Cl-],3.05,cationic,25,15,https://zenodo.org/records/15861809?utm.com
+Dodecylpyridinium chloride,CCCCCCCCCCCC[n+]1ccccc1.[Cl-],1.89,cationic,25,14,https://zenodo.org/records/15861809?utm.com
+Benzethonium chloride,CCCCCCCCCC[N+](CC)CC1=CC=CC=C1.[Cl-],4.1,cationic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Dioctadecyldimethylammonium chloride,CCCCCCCCCCCCCCCCCC[N+](C)CCCCCCCCCCCCCCCCCC.[Cl-],5,cationic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Didodecyldimethylammonium bromide,CCCCCCCCCCCC[N+](C)CCCCCCCCCCCC.[Br-],3.92,cationic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Nonyl glucoside,CCCCCCCCCOC1C(O)C(O)C(O)C(O)C1O,3.82,nonionic,25,13,https://zenodo.org/records/15861809?utm.com
+Octyl glucoside,CCCCCCCCOC1C(O)C(O)C(O)C(O)C1O,1.6,nonionic,25,15,https://zenodo.org/records/15861809?utm.com
+Heptyl glucoside,CCCCCCCOC1C(O)C(O)C(O)C(O)C1O,1.1,nonionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Decyl maltoside,CCCCCCCCCCOC1OC(CO)C(O)C(O)C1OOC2OC(CO)C(O)C(O)C2O,2.74,nonionic,25,15,https://zenodo.org/records/15861809?utm.com
+Dodecyl maltoside,CCCCCCCCCCCCOC1OC(CO)C(O)C(O)C1OOC2OC(CO)C(O)C(O)C2O,3.77,nonionic,25,14,https://zenodo.org/records/15861809?utm.com
+Hexaethylene glycol monododecyl ether (C12E6),CCCCCCCCCCCCOCCOCCOCCOCCOCCO,4.15,nonionic,25,12,https://zenodo.org/records/15861809?utm.com
+Octaethylene glycol monododecyl ether (C12E8),CCCCCCCCCCCCOCCOCCOCCOCCOCCOCCOCCO,4.05,nonionic,25,14,https://zenodo.org/records/15861809?utm.com
+Tetraethylene glycol monododecyl ether (C12E4),CCCCCCCCCCCCOCCOCCOCCO,4.3,nonionic,25,10,https://zenodo.org/records/15861809?utm.com
+Pentaethylene glycol monooctyl ether (C8E5),CCCCCCCCOCCOCCOCCOCCO,2.19,nonionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Nonoxynol-9,CCCCCCCCC1=CC=C(C=C1)OCCOCCOCCOCCO,4.1,nonionic,25,13,https://zenodo.org/records/15861809?utm.com
+Triton X-45,CCCCC1=CC=C(C=C1)C(C)(C)OCCOCCO,3.46,nonionic,25,10,https://zenodo.org/records/15861809?utm.com
+Triton X-405,CCCCC1=CC=C(C=C1)C(C)(C)OCCOCCOCCOCCOCCOCCOCCO,4.7,nonionic,25,18,https://zenodo.org/records/15861809?utm.com
+Tween 40,CCCCCCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,4.52,nonionic,25,15,https://zenodo.org/records/15861809?utm.com
+Tween 60,CCCCCCCCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,4.7,nonionic,25,15,https://zenodo.org/records/15861809?utm.com
+Tween 85,CCCCCCCC=CCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O,5,nonionic,25,11,https://zenodo.org/records/15861809?utm.com
+Span 40,CCCCCCCCCCCCCCCC(=O)OCC(CO)CO,4.22,nonionic,25,6,https://zenodo.org/records/15861809?utm.com
+Span 60,CCCCCCCCCCCCCCCCCC(=O)OCC(CO)CO,4.7,nonionic,25,4.7,https://zenodo.org/records/15861809?utm.com
+Brij 30,CCCCCCCCCCCCOCCOCCO,3.92,nonionic,25,9,https://zenodo.org/records/15861809?utm.com
+Brij 58,CCCCCCCCCCCCCCCCOCCOCCOCCOCCOCCO,4.82,nonionic,25,16,https://zenodo.org/records/15861809?utm.com
+Brij 78,CCCCCCCCCCCCCCCCCC=CCOCCOCCOCCOCCO,5,nonionic,25,15,https://zenodo.org/records/15861809?utm.com
+Lauramine oxide,CCCCCCCCCCCCN(C)(C)=O,2.82,zwitterionic,25,13,https://zenodo.org/records/15861809?utm.com
+Myristamine oxide,CCCCCCCCCCCCCCN(C)(C)=O,3.46,zwitterionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Coco betaine,CCCCCCCCCCCC[N+](C)CC(=O)[O-],3.92,zwitterionic,25,13,https://zenodo.org/records/15861809?utm.com
+Sulfobetaine SB12,CCCCCCCCCCCC[N+](C)CCCS(=O)(=O)[O-],2.7,zwitterionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+CHAPS,CC(C)NCC[C@H]C1CCC2C3CCC4=CC(O)=CC[C@]4(C)C3CCC12C,2.1,zwitterionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+CHAPSO,CC(C)NCC[C@H]C1CCC2C3CCC4=CC(O)=CC[C@]4(C)C3CCC12CO,2.07,zwitterionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Sodium taurocholate,CC(CCC(=O)NCCS(=O)(=O)[O-])C1CCC2C3CCC(O)C3(C)CCC2(C)C1O.[Na+],2.3,anionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Sodium deoxycholate,CC1CCC2C3CCC(O)C3(C)CCC2(C)C1CC(=O)[O-].[Na+],2.52,anionic,25,16,https://zenodo.org/records/15861809?utm.com
+Sodium glycocholate,CC(CCC(=O)NCC(=O)[O-])C1CCC2C3CCC(O)C3(C)CCC2(C)C1O.[Na+],2.22,anionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Perfluorooctanoic acid ammonium salt,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(=O)[O-].[NH4+],1.6,anionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Sodium perfluorooctanesulfonate,FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)S(=O)(=O)[O-].[Na+],2.1,anionic,25,NaN,https://zenodo.org/records/15861809?utm.com
+Aerosol OT (DOSS),CCCCCCC(COC(=O)C(CCCCC)S(=O)(=O)[O-])OC(=O)C(CCCCC)S(=O)(=O)[O-].[Na+].[Na+],2.6,anionic,25,10,https://zenodo.org/records/15861809?utm.com
