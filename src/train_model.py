@@ -21,7 +21,7 @@ from sklearn.metrics import (
 )
 
 #Load dataset
-df = pd.read_csv("data/processed_surfactant.csv")
+df = pd.read_csv("data/processed_surfactants.csv")
 
 #Target: pCMC
 y = df["pCMC"]
