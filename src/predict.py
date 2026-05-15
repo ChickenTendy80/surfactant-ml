@@ -6,12 +6,12 @@ import joblib
 import pandas as pd
 import numpy as np
 
-from descriptors import (
+from src.descriptors import (
     calc_descriptors,
     #calc_fp
 )
 
-from feature_engineering import (
+from src.feature_engineering import (
     generate_engineered_features
 )
 
@@ -152,14 +152,14 @@ def predict_pcmc(
     # --------------------------------------------------------
     # SCALE FEATURES
     # --------------------------------------------------------
-    print("X_new shape:")
-    print(X_new.shape)
+    #print("X_new shape:")
+    #print(X_new.shape)
 
-    print("\nFirst 20 features:")
-    print(X_new.iloc[0, :20])
+    #print("\nFirst 20 features:")
+    #print(X_new.iloc[0, :20])
 
-    print("\nNaN count:")
-    print(X_new.isna().sum().sum())
+    #print("\nNaN count:")
+    #print(X_new.isna().sum().sum())
 
     # --------------------------------------------------------
     # PREDICT
@@ -167,53 +167,12 @@ def predict_pcmc(
 
     pred_pcmc = model_xgb.predict(X_new)[0]
 
-    return pred_pcmc
+    cmc_molar = 10 ** (-pred_pcmc)
 
+    pred_cmc_mM = cmc_molar * 1000
 
-# ============================================================
-# CONVERT pCMC TO CMC
-# ============================================================
+    return pred_pcmc, pred_cmc_mM
 
-def pcmc_to_cmc_mM(pcmc):
-
-    cmc_molar = 10 ** (-pcmc)
-
-    cmc_mM = cmc_molar * 1000
-
-    return cmc_mM
-
-
-# ============================================================
-# SIMPLE TERMINAL TEST
-# ============================================================
-
-if __name__ == "__main__":
-
-    smiles = input("Enter SMILES: ")
-
-    ionic_type = input(
-        "Enter ionic type: "
-    )
-
-    try:
-
-        pred_pcmc = predict_pcmc(
-            smiles,
-            ionic_type
-        )
-
-        pred_cmc = pcmc_to_cmc_mM(
-            pred_pcmc
-        )
-
-        print("\n======================")
-        print(f"Predicted pCMC: {pred_pcmc:.3f}")
-        print(f"Predicted CMC: {pred_cmc:.4f} mM")
-        print("======================")
-
-    except Exception as e:
-
-        print("ERROR:", e)
 
 #Test Molecules
 
