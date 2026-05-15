@@ -57,27 +57,8 @@ def calc_descriptors(smiles):
 # ============================================================
 # MORGAN FINGERPRINTS
 # ============================================================
-
+"""
 def calc_fp(smiles, radius=2, n_bits=128):
-    """
-    Generate Morgan fingerprint array.
-
-    Parameters
-    ----------
-    smiles : str
-        SMILES string
-
-    radius : int
-        Neighborhood radius
-
-    n_bits : int
-        Fingerprint length
-
-    Returns
-    -------
-    numpy.ndarray
-        Binary fingerprint vector
-    """
 
     mol = Chem.MolFromSmiles(smiles)
 
@@ -96,16 +77,12 @@ def calc_fp(smiles, radius=2, n_bits=128):
     DataStructs.ConvertToNumpyArray(fp, arr)
 
     return arr
-
+"""
 # ============================================================
 # GENERATE FULL FINGERPRINT DATAFRAME
 # ============================================================
-
+"""
 def fingerprints_to_df(smiles_series, radius=2, n_bits=128):
-    """
-    Convert multiple SMILES into fingerprint dataframe.
-    """
-
     fps = np.array([
         calc_fp(s, radius=radius, n_bits=n_bits)
         for s in smiles_series
@@ -117,3 +94,4 @@ def fingerprints_to_df(smiles_series, radius=2, n_bits=128):
     )
 
     return fp_df
+"""

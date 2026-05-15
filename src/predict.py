@@ -8,7 +8,7 @@ import numpy as np
 
 from descriptors import (
     calc_descriptors,
-    calc_fp
+    #calc_fp
 )
 
 from feature_engineering import (
@@ -25,10 +25,6 @@ model_xgb = joblib.load(
 
 model_rf = joblib.load(
     "models/trained_model_rf.pkl"
-)
-
-scaler = joblib.load(
-    "models/scaler.pkl"
 )
 
 feature_columns = joblib.load(
@@ -103,7 +99,7 @@ def generate_combined_features(
     # --------------------------------------------------------
     # MORGAN FINGERPRINTS
     # --------------------------------------------------------
-
+    """
     fp_array = calc_fp(smiles)
 
     fp_df = pd.DataFrame(
@@ -113,7 +109,7 @@ def generate_combined_features(
             for i in range(len(fp_array))
         ]
     )
-
+    """
     # --------------------------------------------------------
     # COMBINE EVERYTHING
     # --------------------------------------------------------
@@ -121,8 +117,7 @@ def generate_combined_features(
     combined_df = pd.concat(
         [
             desc_df.reset_index(drop=True),
-            engineered_df.reset_index(drop=True),
-            fp_df.reset_index(drop=True)
+            engineered_df.reset_index(drop=True)
         ],
         axis=1
     )
@@ -165,14 +160,12 @@ def predict_pcmc(
 
     print("\nNaN count:")
     print(X_new.isna().sum().sum())
-    
-    X_scaled = scaler.transform(X_new)
 
     # --------------------------------------------------------
     # PREDICT
     # --------------------------------------------------------
 
-    pred_pcmc = model_xgb.predict(X_scaled)[0]
+    pred_pcmc = model_xgb.predict(X_new)[0]
 
     return pred_pcmc
 

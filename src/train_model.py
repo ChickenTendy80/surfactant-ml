@@ -22,7 +22,7 @@ from sklearn.metrics import (
 
 from descriptors import (
     calc_descriptors,
-    fingerprints_to_df
+    #fingerprints_to_df
 )
 
 from feature_engineering import (
@@ -48,11 +48,11 @@ desc_df = df["smiles"].apply(
 # ============================================================
 # GENERATE FINGERPRINTS
 # ============================================================
-
+"""
 fp_df = fingerprints_to_df(
     df["smiles"]
 )
-
+"""
 # ============================================================
 # GENERATE ENGINEERED FEATURES
 # ============================================================
@@ -80,7 +80,7 @@ X_combined = pd.concat(
     [
         desc_df.reset_index(drop=True),
         engineered_df.reset_index(drop=True),
-        fp_df.reset_index(drop=True)
+        #fp_df.reset_index(drop=True)
     ],
     axis=1
 )
@@ -135,6 +135,7 @@ X_desc = X_combined
 #==============================================
 # 2. Fingerprints Only
 #==============================================
+"""
 fp_cols = [
     col for col in df.columns
     if col.startswith("FP_")
@@ -142,12 +143,12 @@ fp_cols = [
 
 X_fp = df[fp_cols]
 #print(f'Length of fingerprint: {len(X_fp)}')
-
+"""
 #==============================================
 # 3. Descriptor AND Fingerprints 
 #==============================================
 X_combined = pd.concat(
-    [X_desc, X_fp],
+    [X_desc],
     axis=1
 )
 

@@ -1,0 +1,8 @@
+streamlit
+streamlit-ketcher
+rdkit
+xgboost
+scikit-learn
+joblib
+pandas
+numpy
