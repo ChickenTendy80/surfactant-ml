@@ -11,6 +11,37 @@ from streamlit_ketcher import st_ketcher
 from src.predict import predict_pcmc
 
 # ============================================================
+# COMMON SURFACTANTS
+# ============================================================
+
+common_surfactants = {
+    "SDS": {
+        "smiles": "CCCCCCCCCCCCOS(=O)(=O)[O-].[Na+]",
+        "ionic": "anionic"
+    },
+
+    "CTABr": {
+        "smiles": "CCCCCCCCCCCCCCCC[N+](C)(C)C.[Br-]",
+        "ionic": "cationic"
+    },
+
+    "Tween 80": {
+        "smiles": "CCCCCCCC=CCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O",
+        "ionic": "nonionic"
+    },
+
+    "Brij 35": {
+        "smiles": "CCCCCCCCCCCCOCCOCCOCCO",
+        "ionic": "nonionic"
+    },
+
+    "SLES": {
+        "smiles": "CCCCCCCCCCCCOCCOCCOS(=O)(=O)[O-].[Na+]",
+        "ionic": "anionic"
+    }
+}
+
+# ============================================================
 # PAGE TITLE
 # ============================================================
 
@@ -21,11 +52,28 @@ st.write(
     "Press Apply once complete"
 )
 
+#Dropdown for common surfactant
+selected = st.selectbox(
+    "Load common surfactant",
+    ["Custom"] + list(common_surfactants.keys())
+)
+
+#Set default
+default_smiles = ""
+
+default_ionic = "nonionic"
+
+if selected != "Custom":
+
+    default_smiles = common_surfactants[selected]["smiles"]
+
+    default_ionic = common_surfactants[selected]["ionic"]
+
 # ============================================================
 # MOLECULE DRAWER
 # ============================================================
 
-smiles = st_ketcher()
+smiles = st_ketcher(default_smiles)
 
 # ============================================================
 # IONIC TYPE
@@ -38,7 +86,13 @@ ionic_type = st.selectbox(
         "cationic",
         "zwitterionic",
         "nonionic"
-    ]
+    ],
+    index=[
+        "anionic",
+        "cationic",
+        "zwitterionic",
+        "nonionic"
+    ].index(default_ionic)
 )
 
 # ============================================================
@@ -73,3 +127,11 @@ if st.button("Predict CMC"):
         st.warning("Please draw a molecule.")
 
 #Run streamlit run app/streamlit_app.py
+#End by pressing control^ + C (NOT command + C) on mac
+
+#Next goal: Compare with literaure values
+# 1. Exact Matching: search raw_surfactant.csv for the exact same smile
+# 2. Molecular similarity matching: look for SIMILAR molecules, 
+#       display similar molecule and compare their similarity (using tanimoto similarity) 
+#       then show experimental pCMC
+# Can try to plot predicted vs literature??
