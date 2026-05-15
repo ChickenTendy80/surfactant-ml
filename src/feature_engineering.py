@@ -137,7 +137,7 @@ def ethoxylate_count(smiles):
     if mol is None:
         return np.nan
 
-    eo_pattern = Chem.MolFromSmarts("[CH2][CH2]O")
+    eo_pattern = Chem.MolFromSmarts("CCO")
 
     matches = mol.GetSubstructMatches(eo_pattern)
 

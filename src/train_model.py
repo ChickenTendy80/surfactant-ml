@@ -193,6 +193,13 @@ rf_model = RandomForestRegressor(
 rf_model.fit(X_train, y_train)
 y_pred_rf = rf_model.predict(X_test)
 
+
+#print("\nTraining predictions:")
+#print(y_pred_rf[:10])
+
+#print("\nActual values:")
+#print(y_train.iloc[:10].values)
+
 #==============================================
 # Model 3: XGBoost
 #==============================================
@@ -413,7 +420,12 @@ plt.show()
 #============================================
 joblib.dump(
     xgb_model,
-    "models/trained_model.pkl"
+    "models/trained_model_xgb.pkl"
+)
+
+joblib.dump(
+    rf_model,
+    "models/trained_model_rf.pkl"
 )
 
 joblib.dump(

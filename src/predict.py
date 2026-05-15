@@ -19,8 +19,12 @@ from feature_engineering import (
 # LOAD MODEL + SCALER
 # ============================================================
 
-model = joblib.load(
-    "models/trained_model.pkl"
+model_xgb = joblib.load(
+    "models/trained_model_xgb.pkl"
+)
+
+model_rf = joblib.load(
+    "models/trained_model_rf.pkl"
 )
 
 scaler = joblib.load(
@@ -168,7 +172,7 @@ def predict_pcmc(
     # PREDICT
     # --------------------------------------------------------
 
-    pred_pcmc = model.predict(X_scaled)[0]
+    pred_pcmc = model_xgb.predict(X_scaled)[0]
 
     return pred_pcmc
 
@@ -218,5 +222,19 @@ if __name__ == "__main__":
 
         print("ERROR:", e)
 
-#Smiles CCCCCCCCCOC1[CH][C@H](O)[C@@H](O)C(O)O1
-#Actual: 2.677987561
+#Test Molecules
+
+#SDS
+#Smile: CCCCCCCCCCCCOS(=O)(=O)[O-].[Na+]
+#Anionic
+#pCMC ~2.1
+
+#CTABr
+#Smile: CCCCCCCCCCCCCCCC[N+](C)(C)C.[Br-]
+#Cationic
+#pCMC ~3.0
+
+#Tween 80
+#Smile: CCCCCCCC=CCCCCCCCCCCC(=O)OCC(CO)OCC(CO)OCC(CO)O
+#Nonionic
+#pCMC ~5
